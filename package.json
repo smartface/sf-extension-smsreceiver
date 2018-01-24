@@ -1,0 +1,28 @@
+{
+  "name": "sf-extension-smsreceiver",
+  "version": "1.0.0",
+  "description": "Smartface sms receiver extension.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/smartface/sf-extension-smsreceiver.git"
+  },
+  "keywords": [
+    "smartface",
+    "sms",
+    "receiver"
+  ],
+  "author": {
+    "name": "Smartface",
+    "email": "info@smartface.io",
+    "url": "http://smartface.io"
+  }
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smartface/sf-extension-smsreceiver/issues"
+  },
+  "homepage": "https://github.com/smartface/sf-extension-smsreceiver#readme"
+}
