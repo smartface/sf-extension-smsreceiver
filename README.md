@@ -8,6 +8,16 @@ Smartface SmsReceiver can be installed via npm easily from our public npm reposi
 
 - Run command `(cd ~/workspace/scripts && npm i -S sf-extension-smsreceiver)`
 
+Open this line in config/Android/AndroidManifest.xml file.
+```xml
+<!-- Required for receive sms. -->
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+```
+You must request permission for sms receive. (API LEVEL 23 AND UPPER)
+```javascript
+Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
+module.exports = Page1;
+```
 ## How to use
 
 ```javascript
