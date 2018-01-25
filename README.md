@@ -16,7 +16,6 @@ Open this line in config/Android/AndroidManifest.xml file.
 You must request permission for sms receive. (API LEVEL 23 AND UPPER)
 ```javascript
 Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
-module.exports = Page1;
 ```
 ## How to use
 
