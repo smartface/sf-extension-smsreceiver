@@ -10,16 +10,9 @@
  * 
  *      Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
  * 
- *      Application.android.onRequestPermissionsResult = function(e) {
- * 
- *          if(e.requestCode === 1002 && e.result === true){
- * 
- *              SmsReceiver.registerReceiver(function(e) {
- *                  console.log(e.senderNumber + " : " + e.smsBody);
- *              });
- *          }
- * 
- *      };
+ *      SmsReceiver.registerReceiver(function(e) {
+ *          console.log(e.senderNumber + " : " + e.smsBody);
+ *      });
  * 
  *      // SmsReceiver.unRegisterReceiever(); 
  *       

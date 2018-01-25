@@ -18,28 +18,21 @@ var Page1 = extend(Page)(
     function(_super) {
         _super(this, {
             onShow: function(params) {
-                this.statusBar.visible = false;
-                this.headerBar.visible = false;
-            }
-        });
-        
-    const Application = require("sf-core/application");
-    const SmsReceiver = require('sf-extension-smsreceiver');
-    Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
-            
-        Application.android.onRequestPermissionsResult = function(e) {
-            
-            if (e.requestCode === 1002 && e.result === true) {
-                
+                this.statusBar.visible = true;
+                this.headerBar.visible = true;
+
+                const Application = require("sf-core/application");
+                const SmsReceiver = require('sf-extension-smsreceiver');
+
+                Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
                 SmsReceiver.registerReceiver(function(e) {
                     console.log(e.senderNumber + " : " + e.smsBody);
                 });
-                
-            }
-        };
 
-        // SmsReceiver.unRegisterReceiever(); 
-    
+                // SmsReceiver.unRegisterReceiever(); 
+            }
+        });
+
     }
 );
 module.exports = Page1;
