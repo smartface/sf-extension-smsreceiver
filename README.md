@@ -1,7 +1,8 @@
-# SmsReceiver Extension from Smartface (ANDROID ONLY)
+# SmsReceiver Extension from Smartface
+## This extension work only Android.
 [![Twitter: @Smartface_io](https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat)](https://twitter.com/smartface_io)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/smartface/sf-extension-extendedlabel/master/LICENSE)
-## SmsReceiver
+## SmsReceiver 
 This extension is reading incoming sms content.
 ## Installation
 Smartface SmsReceiver can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
