@@ -1,0 +1,28 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/versions/node/v4.4.7/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/versions/node/v4.4.7/bin/npm',
+1 verbose cli   'config',
+1 verbose cli   'set',
+1 verbose cli   'email',
+1 verbose cli   'info@smartface.io' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 info config set "email" "info@smartface.io"
+5 verbose stack Error: EROFS: read-only file system, open '/home/ubuntu/.npmrc'
+5 verbose stack     at Error (native)
+6 verbose cwd /home/ubuntu/workspace/scripts/node_modules/sf-extension-smsreceiver
+7 error Linux 4.4.0-75-generic
+8 error argv "/home/ubuntu/.nvm/versions/node/v4.4.7/bin/node" "/home/ubuntu/.nvm/versions/node/v4.4.7/bin/npm" "config" "set" "email" "info@smartface.io"
+9 error node v4.4.7
+10 error npm  v2.15.8
+11 error path /home/ubuntu/.npmrc
+12 error code EROFS
+13 error errno -30
+14 error syscall open
+15 error rofs EROFS: read-only file system, open '/home/ubuntu/.npmrc'
+15 error rofs This is most likely not a problem with npm itself
+15 error rofs and is related to the file system being read-only.
+15 error rofs
+15 error rofs Often virtualized file systems, or other file systems
+15 error rofs that don't support symlinks, give this error.
+16 verbose exit [ -30, true ]

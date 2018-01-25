@@ -19,8 +19,8 @@
     "name": "Smartface",
     "email": "info@smartface.io",
     "url": "http://smartface.io"
-  }
-  "license": "ISC",
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/smartface/sf-extension-smsreceiver/issues"
   },
