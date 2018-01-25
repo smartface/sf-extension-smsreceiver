@@ -40,12 +40,6 @@ var Page1 = extend(Page)(
                         SmsReceiver.registerReceiver(smsCallback);
                     }
                 };
-
-                var result = Application.android.checkPermission(Application.Android.Permissions.RECEIVE_SMS);
-                if (result) {
-                    SmsReceiver.registerReceiver(smsCallback);
-                }
-
                 
                 // SmsReceiver.unRegisterReceiever(); 
                 
