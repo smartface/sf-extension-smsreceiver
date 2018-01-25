@@ -36,7 +36,9 @@ var Page1 = extend(Page)(
 
                 Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
                 Application.android.onRequestPermissionsResult = function(e) {
-                    SmsReceiver.registerReceiver(smsCallback);
+                    if(e.requestCode === 1002 && e.result === true){
+                        SmsReceiver.registerReceiver(smsCallback);
+                    }
                 };
 
                 var result = Application.android.checkPermission(Application.Android.Permissions.RECEIVE_SMS);
