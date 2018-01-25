@@ -35,11 +35,21 @@ var Page1 = extend(Page)(
                 const SmsReceiver = require('sf-extension-smsreceiver');
 
                 Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
-                SmsReceiver.registerReceiver(function(e) {
-                    console.log(e.senderNumber + " : " + e.smsBody);
-                });
+                Application.android.onRequestPermissionsResult = function(e) {
+                    SmsReceiver.registerReceiver(smsCallback);
+                };
 
+                var result = Application.android.checkPermission(Application.Android.Permissions.RECEIVE_SMS);
+                if (result) {
+                    SmsReceiver.registerReceiver(smsCallback);
+                }
+
+                
                 // SmsReceiver.unRegisterReceiever(); 
+                
+                function smsCallback(e) {
+                    console.log(e.senderNumber + " : " + e.smsBody);
+                }
             }
         });
 
