@@ -10,7 +10,8 @@
  * 
  *      Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
  * 
- *      SmsReceiver.registerReceiver(function(e) {
+ *      SmsReceiver.registerReceiver();
+ *      SmsReceiver.callback = function(e) {
  *          console.log(e.senderNumber + " : " + e.smsBody);
  *      });
  * 

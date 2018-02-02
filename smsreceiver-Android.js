@@ -11,7 +11,9 @@ var _myReciever;
 
 function SmsReceiver() {}
 
-SmsReceiver.registerReceiver = function(callback) {
+SmsReceiver.callback;
+
+SmsReceiver.registerReceiver = function() {
     var filter = new NativeIntentFilter("android.provider.Telephony.SMS_RECEIVED");
     filter.setPriority(9999);
     var broadcastReceiverOverrideMethods = {
@@ -41,7 +43,9 @@ SmsReceiver.registerReceiver = function(callback) {
                     smsSender = messages[0].getOriginatingAddress();
                 }
             }
-            callback({ 'senderNumber': smsSender, 'smsBody': smsBody });
+            if(SmsReceiver.callback && typeof(SmsReceiver.callback) === "function"){
+                SmsReceiver.callback({ 'senderNumber': smsSender, 'smsBody': smsBody });
+            }
         }
     };
     _myReciever = NativeBroadcastReceiver.extend("NativeBroadcastReceiver", broadcastReceiverOverrideMethods, null);

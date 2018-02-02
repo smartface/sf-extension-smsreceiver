@@ -22,6 +22,7 @@ Application.android.requestPermissions(1002, Application.Android.Permissions.REC
 
 ```javascript
 const Page = require("sf-core/ui/page");
+const Page = require("sf-core/ui/page");
 const extend = require("js-base/core/extend");
 
 var Page1 = extend(Page)(
@@ -36,14 +37,18 @@ var Page1 = extend(Page)(
 
                 Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
                 Application.android.onRequestPermissionsResult = function(e) {
-                    if(e.requestCode === 1002 && e.result === true){
-                        SmsReceiver.registerReceiver(smsCallback);
+                    if (e.requestCode === 1002 && e.result === true) {
+                        console.log('registerReceiver');
+                        SmsReceiver.registerReceiver();
+                        SmsReceiver.callback = smsCallback;
+
                     }
                 };
-                
-                // SmsReceiver.unRegisterReceiever(); 
-                
-                function smsCallback(e) {
+
+                // SmsReceiver.unRegisterReceiever();
+
+                function smsCallback(e)
+                {
                     console.log(e.senderNumber + " : " + e.smsBody);
                 }
             }
