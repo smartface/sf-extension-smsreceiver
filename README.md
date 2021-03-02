@@ -1,13 +1,13 @@
-# SmsReceiver Extension from Smartface
-## This extension work only Android. (Emulator & Player version 6.6.1 and upper.) 
+# SMS Receiver Extension from Smartface
+## This extension works only for Android.
 [![Twitter: @Smartface_io](https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat)](https://twitter.com/smartface_io)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/smartface/sf-extension-extendedlabel/master/LICENSE)
 ## SmsReceiver 
-This extension is reading incoming sms content.
+This extension is reading incoming SMS content on Android devices. To learn more about how to handle SMS on both systems, refer to [this document.](https://docs.smartface.io/smartface-native-framework/miscellaneous-native-features/sms-handling)
 ## Installation
-Smartface SmsReceiver can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
+Smartface SMS Receiver can be installed via npm.
 
-- Run command `(cd ~/workspace/scripts && npm i -S sf-extension-smsreceiver)`
+- Run command `(cd /project/workspace/scripts && npm i -S sf-extension-smsreceiver)`
 
 Open this line in config/Android/AndroidManifest.xml file.
 ```xml
@@ -18,45 +18,61 @@ You must request permission for sms receive. (API LEVEL 23 AND UPPER)
 ```javascript
 Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
 ```
+**Note:** You can also use the [permission utility by Smartface Extension Utils.](https://github.com/smartface/sf-extension-utils/blob/master/doc/permission.md)
 ## How to use
 
-```javascript
-const Page = require("sf-core/ui/page");
-const Page = require("sf-core/ui/page");
-const extend = require("js-base/core/extend");
+```typescript
+import Page1Design from 'generated/pages/page1';
+import Permission from 'sf-extension-utils/lib/permission';
+import Application from 'sf-core/application';
+import SMSReceiver from 'sf-extension-smsreceiver';
+import System from 'sf-core/device/system';
 
-var Page1 = extend(Page)(
-    function(_super) {
-        _super(this, {
-            onShow: function(params) {
-                this.statusBar.visible = true;
-                this.headerBar.visible = true;
-
-                const Application = require("sf-core/application");
-                const SmsReceiver = require('sf-extension-smsreceiver');
-
-                Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
-                Application.android.onRequestPermissionsResult = function(e) {
-                    if (e.requestCode === 1002 && e.result === true) {
-                        console.log('registerReceiver');
-                        SmsReceiver.registerReceiver();
-                        SmsReceiver.callback = smsCallback;
-
-                    }
-                };
-
-                // SmsReceiver.unRegisterReceiever();
-
-                function smsCallback(e)
-                {
-                    console.log(e.senderNumber + " : " + e.smsBody);
-                }
-            }
-        });
-
+export default class Page1 extends Page1Design {
+    router: any;
+    constructor() {
+        super();
+        this.onShow = onShow.bind(this, this.onShow.bind(this));
+        this.onLoad = onLoad.bind(this, this.onLoad.bind(this));
+        this.onHide = onHide.bind(this, this.onHide && this.onHide.bind(this));
     }
-);
-module.exports = Page1;
+
+    requestSMSPermission() {
+        if (System.OS === 'iOS') {
+            // Prevent unnecessary prompt on iOS. iOS doesn't have this permission.
+            return;
+        }
+        Permission.getPermission({
+            androidPermission: Application.Android.Permissions.RECEIVE_SMS,
+            permissionText: "Requesting to Receive SMS to do awesome stuff",
+            permissionTitle: "Permission Required"
+        })
+            .then(() => {
+                SMSReceiver.registerReceiver();
+                SMSReceiver.callback = (e) => {
+                    console.info(e);
+                }
+            })
+    }
+}
+
+function onHide(superOnHide: () => void) {
+    superOnHide();
+    /**
+     * This will be triggered when user leaves the page.
+     */
+    SMSReceiver.unRegisterReceiver();
+}
+
+function onShow(superOnShow: () => void) {
+    superOnShow();
+}
+
+function onLoad(superOnLoad: () => void) {
+    superOnLoad();
+    this.requestSMSPermission();
+}
+
 ```
 ## License
 This project is licensed under the terms of the MIT license. See the [LICENSE](https://raw.githubusercontent.com/smartface/sf-extension-extendedlabel/master/LICENSE) file. Within the scope of this license, all modifications to the source code, regardless of the fact that it is used commercially or not, shall be committed as a contribution back to this repository.

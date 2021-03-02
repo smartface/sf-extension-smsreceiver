@@ -5,20 +5,20 @@
  * @class SmsReceiver
  *
  *      @example
- *      const SmsReceiver = require('sf-extension-smsreceiver');
+ *      const SMSReceiver = require('sf-extension-smsreceiver');
  *      const Application = require("sf-core/application");
  * 
  *      Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
  * 
- *      SmsReceiver.registerReceiver();
- *      SmsReceiver.callback = function(e) {
+ *      SMSReceiver.registerReceiver();
+ *      SMSReceiver.callback = function(e) {
  *          console.log(e.senderNumber + " : " + e.smsBody);
  *      });
  * 
- *      // SmsReceiver.unRegisterReceiever(); 
+ *      // SMSReceiver.unRegisterReceiever(); 
  *       
  */
-function SmsReceiver() {}
+function SMSReceiver() {}
 
 /**
  * Register a Sms-BroadcastReceiver to be run in the main activity thread.
@@ -27,16 +27,16 @@ function SmsReceiver() {}
  * @param {object} callback.e
  * @android
  */
-SmsReceiver.registerReceiver = function(callback){};
+SMSReceiver.registerReceiver = function(callback){};
 
 /**
- * Unregister a Sms-BroadcastReceiver to be run in the main activity thread..
+ * Unregister a Sms-BroadcastReceiver to be run in the main activity thread.
  * @method unRegisterReceiever
  * @android
  */
-SmsReceiver.unRegisterReceiever = function(){};
+SMSReceiver.unRegisterReceiever = function(){};
 
 
 module.exports = {
-    SmsReceiver: SmsReceiver,
+    SMSReceiver: SMSReceiver,
 };

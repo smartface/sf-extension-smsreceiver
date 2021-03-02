@@ -9,11 +9,11 @@ const NativeSmsMessage = requireClass("android.telephony.SmsMessage");
 const activity = AndroidConfig.activity;
 var _myReciever;
 
-function SmsReceiver() {}
+function SMSReceiver() {}
 
-SmsReceiver.callback;
+SMSReceiver.callback;
 
-SmsReceiver.registerReceiver = function() {
+SMSReceiver.registerReceiver = function() {
     var filter = new NativeIntentFilter("android.provider.Telephony.SMS_RECEIVED");
     filter.setPriority(9999);
     var broadcastReceiverOverrideMethods = {
@@ -43,8 +43,8 @@ SmsReceiver.registerReceiver = function() {
                     smsSender = messages[0].getOriginatingAddress();
                 }
             }
-            if(SmsReceiver.callback && typeof(SmsReceiver.callback) === "function"){
-                SmsReceiver.callback({ 'senderNumber': smsSender, 'smsBody': smsBody });
+            if(SMSReceiver.callback && typeof(SMSReceiver.callback) === "function"){
+                SMSReceiver.callback({ 'senderNumber': smsSender, 'smsBody': smsBody });
             }
         }
     };
@@ -52,8 +52,8 @@ SmsReceiver.registerReceiver = function() {
     activity.registerReceiver(_myReciever, filter);
 };
 
-SmsReceiver.unRegisterReceiever = function() {
+SMSReceiver.unRegisterReceiever = function() {
     activity.unregisterReceiver(_myReciever);
 };
 
-module.exports = SmsReceiver;
+module.exports = SMSReceiver;
