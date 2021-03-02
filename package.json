@@ -1,6 +1,6 @@
 {
   "name": "sf-extension-smsreceiver",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Smartface sms receiver extension.",
   "main": "index.js",
   "scripts": {
