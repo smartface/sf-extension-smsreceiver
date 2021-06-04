@@ -5,9 +5,12 @@
 ## SMS Receiver 
 This extension is reading incoming SMS content on Android devices. To learn more about how to handle SMS on both systems, refer to [this document.](https://docs.smartface.io/smartface-native-framework/miscellaneous-native-features/sms-handling)
 ## Installation
-Smartface SMS Receiver can be installed via npm.
+Smartface SMS Receiver can be installed via npm. Execute this command on scripts directory:
 
-- Run command `(cd /project/workspace/scripts && npm i -S sf-extension-smsreceiver)`
+```
+npm i @smartface/extension-smsreceiver
+```
+
 
 Open this line in config/Android/AndroidManifest.xml file.
 ```xml
