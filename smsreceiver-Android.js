@@ -1,5 +1,5 @@
 /*globals requireClass */
-const AndroidConfig = require("sf-core/util/Android/androidconfig");
+const AndroidConfig = require("@smartface/native/util/Android/androidconfig");
 const NativeIntentFilter = requireClass("android.content.IntentFilter");
 const NativeBroadcastReceiver = requireClass(
   "android.content.BroadcastReceiver"
