@@ -5,8 +5,8 @@
  * @class SmsReceiver
  *
  *      @example
- *      const SmsReceiver = require('sf-extension-smsreceiver');
- *      const Application = require("@smartface/native/application");
+ *      import SmsReceiver from '@smartface/extension-smsreceiver';
+ *      import Application from '@smartface/native/application';
  *
  *      Application.android.requestPermissions(1002, Application.Android.Permissions.RECEIVE_SMS);
  *

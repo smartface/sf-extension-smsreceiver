@@ -26,9 +26,9 @@ Application.android.requestPermissions(1002, Application.Android.Permissions.REC
 
 ```typescript
 import Page1Design from 'generated/pages/page1';
-import Permission from 'sf-extension-utils/lib/permission';
+import Permission from '@smartface/extension-utils/lib/permission';
 import Application from '@smartface/native/application';
-import SMSReceiver from 'sf-extension-smsreceiver';
+import SMSReceiver from '@smartface/extension-smsreceiver';
 import System from '@smartface/native/device/system';
 
 export default class Page1 extends Page1Design {

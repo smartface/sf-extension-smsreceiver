@@ -27,8 +27,5 @@
   "homepage": "https://github.com/smartface/sf-extension-smsreceiver#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "peerDependencies": {
-    "@smartface/native": "^4.0.0"
   }
 }
