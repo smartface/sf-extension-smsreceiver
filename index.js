@@ -1,2 +1,2 @@
 const System = require("@smartface/native/device/system");
-module.exports = require(`./listviewindex-${System.OS}`);
+module.exports = require(`./smsreceiver-${System.OS}`);
