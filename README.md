@@ -5,9 +5,12 @@
 ## SMS Receiver 
 This extension is reading incoming SMS content on Android devices. To learn more about how to handle SMS on both systems, refer to [this document.](https://docs.smartface.io/smartface-native-framework/miscellaneous-native-features/sms-handling)
 ## Installation
-Smartface SMS Receiver can be installed via npm.
+Smartface SMS Receiver can be installed via npm. Execute this command on scripts directory:
 
-- Run command `(cd /project/workspace/scripts && npm i -S sf-extension-smsreceiver)`
+```
+npm i @smartface/extension-smsreceiver
+```
+
 
 Open this line in config/Android/AndroidManifest.xml file.
 ```xml
@@ -23,10 +26,10 @@ Application.android.requestPermissions(1002, Application.Android.Permissions.REC
 
 ```typescript
 import Page1Design from 'generated/pages/page1';
-import Permission from 'sf-extension-utils/lib/permission';
-import Application from 'sf-core/application';
-import SMSReceiver from 'sf-extension-smsreceiver';
-import System from 'sf-core/device/system';
+import Permission from '@smartface/extension-utils/lib/permission';
+import Application from '@smartface/native/application';
+import SMSReceiver from '@smartface/extension-smsreceiver';
+import System from '@smartface/native/device/system';
 
 export default class Page1 extends Page1Design {
     router: any;
@@ -75,4 +78,4 @@ function onLoad(superOnLoad: () => void) {
 
 ```
 ## License
-This project is licensed under the terms of the MIT license. See the [LICENSE](https://raw.githubusercontent.com/smartface/sf-extension-extendedlabel/master/LICENSE) file. Within the scope of this license, all modifications to the source code, regardless of the fact that it is used commercially or not, shall be committed as a contribution back to this repository.
+This project is licensed under the terms of the MIT license. See the [LICENSE](https://raw.githubusercontent.com/smartface/sf-extension-smsreceiver/master/LICENSE) file. Within the scope of this license, all modifications to the source code, regardless of the fact that it is used commercially or not, shall be committed as a contribution back to this repository.

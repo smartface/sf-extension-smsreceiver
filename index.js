@@ -1,6 +1,2 @@
-const System = require("sf-core/device/system");
-if (System.OS === "Android") {
-    module.exports = require("./smsreceiver-Android");
-} else {
-    module.exports = {};
-}
+const System = require("@smartface/native/device/system");
+module.exports = require(`./smsreceiver-${System.OS}`);

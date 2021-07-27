@@ -1,6 +1,6 @@
 {
-  "name": "sf-extension-smsreceiver",
-  "version": "2.0.0",
+  "name": "@smartface/extension-sms-receiver",
+  "version": "3.0.0",
   "description": "Smartface sms receiver extension.",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/smartface/sf-extension-smsreceiver/issues"
   },
-  "homepage": "https://github.com/smartface/sf-extension-smsreceiver#readme"
+  "homepage": "https://github.com/smartface/sf-extension-smsreceiver#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
