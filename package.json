@@ -4,7 +4,8 @@
   "description": "Smartface sms receiver extension.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "tsc -w",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,13 @@
   "homepage": "https://github.com/smartface/sf-extension-smsreceiver#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha",
+    "@types/node": "^16.6.1",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha"
   }
 }
