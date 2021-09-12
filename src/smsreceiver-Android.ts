@@ -13,8 +13,7 @@ const NativeTelephony = requireClass("android.provider.Telephony");
 const NativeSmsMessage = requireClass("android.telephony.SmsMessage");
 
 let activity = AndroidConfig.activity;
-//@ts-ignore
-let _myReceiver;
+let _myReceiver: any;
 let _isRegistered = false;
 
 /**
@@ -48,7 +47,7 @@ export default class SMSReceiver {
      * Register a Sms-BroadcastReceiver to be run in the main activity thread.
      * This needs RECEIVE_SMS permission.
      */
-    static registerReceiver = () => {
+    static registerReceiver() {
         let filter = new NativeIntentFilter(
             "android.provider.Telephony.SMS_RECEIVED"
         );
@@ -101,7 +100,7 @@ export default class SMSReceiver {
     /**
      * Set or get this function to read the sms content and number.
      */
-    static unRegisterReceiver = () => {
+    static unRegisterReceiver() {
         if(_isRegistered) {
             //@ts-ignore
             activity.unregisterReceiver(_myReceiver);
