@@ -1,3 +1,5 @@
+# NOTE! THIS MODULE HAVE BEEN DEPRECATED ON NATIVE VERSION 5.0.0 AND ABOVE! CONSIDER USING NATIVE/DEVICE/SCREEN INSTEAD OF THIS MODULE!
+
 # SMS Receiver Extension from Smartface
 ## This extension works only for Android.
 [![NPM](https://img.shields.io/npm/v/@smartface/extension-sms-receiver?style=flat-square)](https://www.npmjs.com/package/@smartface/extension-sms-receiver)
